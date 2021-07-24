@@ -7,26 +7,32 @@
         <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet"> <!-- This is the Tailwind CSS file -->
     </head>
     <body id="top">
-        <header class="fixed w-full bg-gray-900 bg-opacity-75 backdrop-filter backdrop-blur text-white flex justify-between">
-            <a class="font-bold block px-8 py-4" href="#top">Thomas Delvaux</a>
-            <nav>
-                <ul class="md:flex">
-                    <li>
-                        <a class="block px-8 py-4 hover:bg-black hover:bg-opacity-50" href="#hero">Hero</a>
-                    </li>
-                    <li>
-                        <a class="block px-8 py-4 hover:bg-black hover:bg-opacity-50" href="#about">About</a>
-                    </li>
-                    <li>
-                        <a class="block px-8 py-4 hover:bg-black hover:bg-opacity-50" href="#ClemBot">ClemBot</a>
-                    </li>
-                </ul>
-            </nav>
+        <!-- component -->
+        <!-- Menu based on: https://tailwindcomponents.com/component/responsive-navbar-with-dropdown by Cricksu -->
+        <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
+        <header class="fixed w-full text-white bg-gray-800 bg-opacity-75 backdrop-filter backdrop-blur">
+            <div x-data="{ open: false }" class="flex flex-col max-w-screen-xl px-4 mx-auto md:items-center md:justify-between md:flex-row md:px-6 lg:px-8">
+                <div class="p-4 flex flex-row items-center justify-between">
+                    <a href="#" class="text-lg font-semibold tracking-widest text-white uppercase rounded-lg focus:outline-none focus:shadow-outline">Thomas Delvaux</a>
+                    <button class="md:hidden rounded-lg focus:outline-none focus:shadow-outline" @click="open = !open">
+                        <svg fill="currentColor" viewBox="0 0 20 20" class="w-6 h-6">
+                            <path x-show="!open" fill-rule="evenodd" d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM9 15a1 1 0 011-1h6a1 1 0 110 2h-6a1 1 0 01-1-1z" clip-rule="evenodd"></path>
+                            <path x-show="open" fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"></path>
+                        </svg>
+                    </button>
+                </div>
+                <nav :class="{'flex': open, 'hidden': !open}" class="flex-col flex-grow pb-4 md:pb-0 hidden md:flex md:justify-end md:flex-row">
+                    <!-- <a class="px-4 py-2 mt-2 text-sm font-semibold text-gray-900 bg-gray-200 rounded-lg dark-mode:bg-gray-700 dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 md:mt-0 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline" href="#hero">Hero</a> -->
+                    <a class="px-4 py-2 mt-2 text-sm font-light bg-transparent rounded-lg md:mt-0 md:ml-4 hover:text-gray-200 focus:text-gray-200 hover:bg-black hover:bg-opacity-50 focus:bg-black focus:bg-opacity-75 focus:outline-none focus:shadow-outline" href="#hero">Hero</a>
+                    <a class="px-4 py-2 mt-2 text-sm font-light bg-transparent rounded-lg md:mt-0 md:ml-4 hover:text-gray-200 focus:text-gray-200 hover:bg-black hover:bg-opacity-50 focus:bg-black focus:bg-opacity-75 focus:outline-none focus:shadow-outline" href="#about">About</a>
+                    <a class="px-4 py-2 mt-2 text-sm font-light bg-transparent rounded-lg md:mt-0 md:ml-4 hover:text-gray-200 focus:text-gray-200 hover:bg-black hover:bg-opacity-50 focus:bg-black focus:bg-opacity-75 focus:outline-none focus:shadow-outline" href="#ClemBot">ClemBot</a>  
+                </nav>
+            </div>
         </header>
 
         <main>
-            <section id="hero" class="h-screen bg-gradient-to-r from-blue-800 to-green-700 text-white text-center grid place-items-center">
-                <div>
+            <section id="hero" class="h-screen bg-gradient-to-r from-blue-800 to-green-500 text-white text-center grid place-items-center">
+                <div class="px-4">
                     <img src="Images/Picture.jpg" class="mx-auto p-10 rounded-full flex-auto md:object-scale-down md:h-96">
                     <p class="text-lg font-bold italic uppercase tracking-wider">Clemson University</p>
                     <h1 class="font-bold text-6xl md:text-8xl leading-none">Thomas Delvaux</h1>
