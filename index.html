@@ -10,7 +10,7 @@
         <!-- component -->
         <!-- Menu based on: https://tailwindcomponents.com/component/responsive-navbar-with-dropdown by Cricksu -->
         <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
-        <header class="fixed w-full text-white bg-black bg-opacity-50 backdrop-filter backdrop-blur" style="z-index: 1;">
+        <header class="fixed w-full text-white bg-black bg-opacity-50 backdrop-filter backdrop-blur" style="z-index: 2;">
             <div x-data="{ open: false }" class="flex flex-col max-w-screen-xl px-4 mx-auto md:items-center md:justify-between md:flex-row md:px-6 lg:px-8">
                 <div class="p-4 flex flex-row items-center justify-between">
                     <a href="#" class="text-lg font-semibold tracking-widest text-white uppercase rounded-lg focus:outline-none focus:shadow-outline">Thomas Delvaux</a>
@@ -31,13 +31,23 @@
         </header>
 
         <main>
-            <!-- <video autoplay muted loop id="myVideo">
+            <video autoplay muted loop id="myVideo"
+                style = 
+                "position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                object-position: center;
+                z-index: -1;"
+                >
                 <source src="Images/wave.mp4" type="video/mp4">
                 Your browser does not support the video tag.
-            </video> -->
+            </video>
 
-            <section id="welcome" class="h-screen bg-gradient-to-r from-blue-800 to-green-500 text-white text-center grid place-items-center bg-contain"
-                style = 
+            <section id="welcome" class="h-screen text-white text-center grid place-items-center"> 
+                <!-- style = 
                     "background-image: url('wave.gif');
                     background-repeat: no-repeat;
                     background-position: center;
@@ -47,15 +57,15 @@
                     -moz-background-size: cover; 
                     -o-background-size: cover; 
                     background-size: cover;"
-            >
+            > -->
                 <!--Contains all of the basic info-->
-                <div class = "bg-black bg-opacity-0 rounded">
+                <div class = "bg-black bg-opacity-0 rounded" style="z-index: 0;">
                     <h1 class = "font-bold italic text-white text-7xl md:text-9xl inline-block mt-3 mb-3 ml-5 mr-5">Welcome!</h1>
                 </div>
             </section>
 
-            <section id="hero" class="h-full bg-gradient-to-r from-blue-800 to-green-500 text-white text-center grid place-items-center bg-opacity-0"
-                style = 
+            <section id="hero" class="h-full text-white text-center grid place-items-center">
+                <!-- style = 
                     "background-image: url('wave.gif');
                     background-repeat: no-repeat;
                     background-position: center;
@@ -65,8 +75,8 @@
                     -moz-background-size: cover; 
                     -o-background-size: cover; 
                     background-size: cover;"
-            >
-                <div class="px-4 bg-black bg-opacity-50 rounded mt-5 py-12 backdrop-filter backdrop-blur">
+            > -->
+                <div class="px-4 bg-black bg-opacity-50 rounded mt-5 py-12 backdrop-filter backdrop-blur" style="z-index: 1;">
                     <img src="Images/Picture.jpg" class="mx-auto rounded-full p-5 mt-16 flex-auto object-scale-down md:h-96">
                     <p class="text-lg font-bold italic uppercase tracking-wider">Clemson University</p>
                     <h1 class="font-bold text-6xl md:text-8xl md:ml-10 md:mr-10 leading-none">Thomas Delvaux</h1>
@@ -90,7 +100,7 @@
                 </div>
             </section>
 
-            <section id="about" class="bg-gradient-to-r from-gray-500 to-gray-800 pt-10">
+            <section id="about" class="bg-gradient-to-r from-gray-500 to-gray-800 pt-10 " style="z-index: 1;">
                 <h2 class="text-center text-xl font-bp;d text-gray-300">About Me</h2>
                 <ul class="grid p-10 gap-10 md:grid-cols-3">
                     <li class="bg-gray-900 shadow rounded-lg overflow-hidden">
